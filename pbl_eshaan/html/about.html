@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+:root {
+  --bg-color : white;
+  --second-bg-color : aliceblue ;
+  --text-color : #73788d;
+  --main-color : #2467eb;
+  --heading-color : #02042e;
+}
+
+html {
+  font-size: 65.5%;
+  overflow-x : hidden;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+header {
+  background-color: var(--heading-color);
+  color: var(--second-bg-color);
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: .3s;
+}
+
+.header.sticky {
+  background: var(--heading-color);
+}
+
+.logo {
+  position: relative;
+  font-size: 2.5rem;
+  color: var(--second-bg-color);
+  font-weight: 600;
+  float: left;
+}
+
+.navbar {
+  position: relative;
+}
+
+.navbar a {
+  font-size: 1.7rem;
+  color: var(--second-bg-color);
+  font-weight: 500;
+  margin-left: 3.5rem;
+  transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  text-decoration-line: underline;
+}
+
+.nav_login-btn {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 2px solid var(--second-bg-color);
+  border-radius: 25px;
+}
+
+.nav_login-btn:hover {
+  border: 4px solid var(--second-bg-color);
+  font-weight: 700;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.form-control label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-control input[type="text"],
+.form-control input[type="number"],
+.form-control select {
+  width: calc(100% - 10px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group {
+  width: calc(25% - 10px);
+}
+
+.form-control input[type="datetime-local"] {
+  width: calc(100% - 10px);
+}
+
+.form-control input[type="submit"] {
+  background-color: #2467eb;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+.form-control input[type="submit"]:hover {
+  background-color: #1e54e9;
+}
+
+.end {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+/*footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 800px;
+  margin: 0 auto;
+}*/
+
+.left,
+.right {
+  width: 30%;
+}
+
+.left h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.left p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.left-icon i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.navigate,
+.support,
+.contact {
+  margin-bottom: 20px;
+}
+
+.navigate ul,
+.support ul,
+.contact ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.navigate ul li,
+.support ul li,
+.contact ul li {
+  margin-bottom: 5px;
+}
+
+.navigate ul li a,
+.support ul li a,
+.contact ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigate ul li a:hover,
+.support ul li a:hover,
+.contact ul li a:hover {
+  text-decoration: underline;
+}
+
+.about-1{
+  margin: 30px;
+  padding: 5px;
+}
+.about-1 h1{
+  text-align: center;
+  color: black;
+  font-weight:bold;
+}
+.about-1 p{
+  text-align:center;
+  padding: 3px;
+  color: #fff;
+}
+.about-item{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color:white;
+  padding: 80px,30px;
+  box-shadow: 0 0 9px rgba(0,0,0 -6);
+}
+.about-item i{
+  font-size:43px;
+  margin: 0;
+}
+.about-item h3{
+  font-size:35 px;
+  margin-bottom: 10px;
+}
+.about-item hr{
+  width: 46px;
+  height: 3px;
+  background-color: #5fbff9;
+  margin: 0 auto;
+  border: none;
+}
+.about-item p{
+  margin-top: 20px;
+}
+.about-item:hover{
+  background-color: #5fbff9;
+}
+.about-item:hover i,
+.about-item:hover h3,
+.about-item:hover p{
+  color: #ffff;
+}
+.about-item:hover hr{
+  background-color:#fff;
+}
+.about-item:hover i{
+  transform:translate(-20px);
+
+}
+.about-item:hover i,
+.about-item:hover h3,
+.about-item:hover hr{
+  transition: all 400ms ease-in-out;
+}
+footer{
+  background: #212226;
+  padding: 20px;
+}
+footer p{
+  color:#fff;
+
+}
+    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/css/index.css">
+  <script src="/js/firebase.js"></script>
+</head>
+<body>
+    <header>
+            <a href="index.html" class="logo">WearShare</a>
+              <nav class="navbar">
+                <a href="#home" >Home</a>  
+                <a href="about.html" class="active" >About Us</a>
+                <a href="index.html#Guide">Guide</a>
+                <a href="index.html#Featured">Featured</a> 
+                <a href="contact us.html">Contact Us</a>
+                <span class="active-nav"></span>   
+      </header>
+      <section id="about">
+        <div class="about-1">
+            <h1>ABOUT US</h1>
+            <p>WELCOME!! to WearShare CLOTH DONATION WEBSITE , where we strive to make difference one garment at a time.
+                Our mission is to provide clothing assistance to those in need while promoting sustainability and community engagement.
+
+            </p>
+        </div>
+            <div id="about-2">
+                <div class="content-box-lg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="about-item text-center">
+                                    <i class="fa-fa-book"></i>
+                                    <h3>MISSION</h3>
+                                    <hr>
+                                    <p>We aim to alleviate the burden of clothing insecurity by collecting gently used and new clothing donations and distributing them to individuals and families facing economic hardhips ,homelesness circumstances .
+                                        By encouraging donaation and reuse,we contribute to reduce textile waste and minimizing our environmental footprint. 
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="about-item text-center">
+                                        <i class="fa-fa-globe"></i>
+                                        <h3>VISION</h3>
+                                        <hr>
+                                        <p>We envison a world where clothing insecurity is erdaicated,and every individual has access to clean,comfortable clothing.Our vision guides our efforts and inspires us to make a lasting imapcat
+                                            on communities worldwide.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="about-item text-center">
+                                        <i class="fa-fa-pencil"></i>
+                                        <h3>ACHIEVEMENTS</h3>
+                                        <hr>
+                                        <p>We take pride in impact we have made and the milestones we have achieved on our journey to provide clothing assistance and promote sustainability.
+                                            THOUSANDS OF DONATION,
+                                            DIRECT COMMUNITY SUPPORT,
+                                            EDUCATION AND AWARNESS,
+                                            VOLUNTEER ENGAGEMNET.
+                                        While we celebrate our achievments,we remain commited to our mission and are continuously striving to do more.                                            </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+    </section>
+    <footer class="text-center">
+    <p>Copyright &copy; 2024 All rights reserved by Sahayaa</p>
+  </footer>
+</body>
+</html>
+
+        

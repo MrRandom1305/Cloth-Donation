@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+:root {
+    --bg-color : white;
+    --second-bg-color : aliceblue ;
+    --text-color : #73788d;
+    --main-color : #2467eb;
+    --heading-color : #02042e;
+}
+
+html {
+    font-size: 65.5%;
+    overflow-x: hidden;
+}
+
+header {
+    margin-top: 20px;
+    background-color: var(--heading-color);
+    color: var(--second-bg-color);
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: .3s;
+  }
+  
+  .header.sticky {
+    background: var(--bg-color);
+  }
+  
+  .logo {
+    position: relative;
+    font-size: 2.5rem;
+    color: var(--second-bg-color);
+    font-weight: 600;
+    float: left;
+  }
+
+  .nav_login-btn {
+    font-size: 2rem;
+    color: var(--bg-color);
+    background-color: transparent;
+  }
+
+  .nav_login-btn span {
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+  }
+  
+body {
+    background: var(--heading-color);
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.75;
+    background-color: var(--heading-color);
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"], select, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"], #addClothing {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input[type="submit"]:hover, #addClothing:hover {
+    background-color: var(--main-color);
+}
+
+#addClothing {
+    margin: 10px 0 10px 0;
+    width: 40%;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: var(--bg-color);
+  }
+  .left {
+    width: 40%;
+    padding-left: 30px;
+  }
+  
+  .left h1 {
+    color: var(--heading-color);
+    margin-bottom: 10px;
+  }
+  
+  .left-icon i {
+    margin-right: 10px;
+    font-size: 2.5rem;
+  }
+  
+  .left p {
+    margin-bottom: 10px;
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: space-evenly;
+  }
+  
+  .navigate p , .support p , .contact p { 
+    font-size: 2.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+  }
+  
+  .navigate li a,
+  .support li a,
+  .contact li a{
+    font-size: 1.5rem;
+    color: var(--text-color);
+  }
+  
+  .navigate li:hover,
+  .support li:hover ,
+  .contact li:hover
+  {
+    font-weight: 500;
+  }
+  .navigate li ,
+  .support li ,
+  .contact li 
+   {
+    margin-bottom: 5px;
+  }
+
+  .step {
+    background:var(--heading-color);
+    padding-left: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+
+  .step-header {
+    color: var(--bg-color);;
+  }
+  
+  .process-card {
+    display: flex;
+    flex-direction: row;
+    row-gap: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .step-card {
+    position: relative;
+    margin: 15px;
+    width: 30.33%;
+    /*border:2px solid #02042e;*/
+    padding: 18px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+  } 
+  
+  .step-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+  }
+  
+  .step-card span {
+    position: absolute;
+    background-color: var(--heading-color);
+    color: var(--bg-color);
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    left: 5px;
+    top: 5px;
+    border-radius: 50%;
+    border: 8px solid var(--bg-color);
+    font-weight: 500;
+  }
+  
+  .step-card h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+  }
+  
+  
+ </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloth Donation Form</title>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="/css/donate.css">
+<!-- Firebase JavaScript SDK -->
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">WearShare.</a>
+        <button class="nav_login-btn" onclick="openForm()" ><i class='bx bx-user-circle'></i> <span>profile</span> </button> 
+      </header>
+<div class="container">
+    <h2>Cloth Donation Form</h2>
+    <form id="donationForm">
+        <div class="form-control">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-control">
+            <label for="email">Email Address:</label>
+            <input type="text" id="email" name="email" required>
+        </div>
+        <div id="clothingContainer">
+            <div class="clothing-item">
+                <label for="clothingType">Type of Clothing:</label>
+                <select class="clothingType" name="clothingType" required>
+                    <option value="">-- Select --</option>
+                    <option value="Shirts">Shirts</option>
+                    <option value="Pants">Pants</option>
+                    <option value="Dresses">Dresses</option>
+                    <option value="Jackets">Jackets</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="quantity">Quantity:</label>
+                <input type="number" class="quantity" name="quantity" min="1" required>
+            </div>
+        </div>
+        <button type="button" id="addClothing">Add Another Clothing</button>
+        <div class="form-control">
+            <label for="street">Street Address:</label>
+            <input type="text" id="street" name="street" required>
+        </div>
+        <div class="form-control">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+        </div>
+        <div class="form-control">
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+        </div>
+        <div class="form-control">
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" required>
+        </div>
+        <div class="form-control">
+            <label for="schedulePickup">Schedule Pickup:</label>
+            <input type="datetime-local" id="schedulePickup" name="schedulePickup" required>
+        </div>
+        <div class="form-control">
+            <label for="ngo">Choose an NGO:</label>
+            <select id="ngo" name="ngo" required class="ngo-select">
+                <option value="">-- Select --</option>
+                <option value="NGO A">NGO A</option>
+                <option value="NGO B">NGO B</option>
+                <option value="NGO C">NGO C</option>
+                <option value="NGO D">NGO D</option>
+            </select>
+        </div>
+        <div class="form-control">
+            <input type="submit" value="Donate">
+        </div>
+    </form>
+</div>
+<section class="end">
+    <footer>
+      <div class="left">
+        <h1>Sahaya.</h1>
+        <p> 2023-2024 Wearshare is part of helping<br> people </p>
+        <div class="left-icon">
+          <i class='bx bxl-facebook-circle'></i>
+          <i class='bx bxl-youtube' ></i>
+          <i class='bx bxl-instagram-alt' ></i>
+          <i class='bx bxl-twitter' ></i>
+        </div>
+      </div>
+      <div class="right">
+        <div class="navigate">
+          <p> Navigate </p>
+          <ul>
+            <li><a href="#Guide">How it works</a></li>
+            <li><a href="#">Donate clothes</a></li>
+            <li><a href="">Avaliable City</a></li>
+            <li><a href="">Join us</a></li>
+          </ul>
+        </div>
+  
+        <div class="support">
+          <p>Support</p>
+          <ul>
+            <li><a href="contact us.html">Contact </a></li>
+            <li><a href="">Donate us </a></li>
+            <li><a href=""></a></li>
+          </ul>
+        </div>
+  
+        <div class="contact">
+          <p>Contact</p>
+          <ul>
+            <li><a href="">88XXXXXX87 </a></li>
+            <li><a href="">shrutika.10giri@gmail.com </a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+<script>
+    // Initialize Select2 for the NGO spinner
+    $(document).ready(function() {
+        $('.ngo-select').select2({
+            placeholder: "-- Select --",
+            allowClear: true,
+            width: '100%'
+        });
+    });
+
+    document.getElementById("addClothing").addEventListener("click", function() {
+        var clothingContainer = document.getElementById("clothingContainer");
+        var clothingItem = document.createElement("div");
+        clothingItem.className = "clothing-item";
+        clothingItem.innerHTML = `
+            <label for="clothingType">Type of Clothing:</label>
+            <select class="clothingType" name="clothingType" required>
+                <option value="">-- Select --</option>
+                <option value="Shirts">Shirts</option>
+                <option value="Pants">Pants</option>
+                <option value="Dresses">Dresses</option>
+                <option value="Jackets">Jackets</option>
+                <option value="Other">Other</option>
+            </select>
+            <label for="quantity">Quantity:</label>
+            <input type="number" class="quantity" name="quantity" min="1" required>
+        `;
+        clothingContainer.appendChild(clothingItem);
+    });
+
+    document.getElementById("donationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var ngo = document.getElementById("ngo").value;
+        var street = document.getElementById("street").value;
+        var city = document.getElementById("city").value;
+        var state = document.getElementById("state").value;
+        var pincode = document.getElementById("pincode").value;
+        var schedulePickup = document.getElementById("schedulePickup").value;
+
+        var donations = [];
+        var clothingItems = document.querySelectorAll(".clothing-item");
+        clothingItems.forEach(function(item) {
+            var clothingType = item.querySelector(".clothingType").value;
+            var quantity = item.querySelector(".quantity").value;
+            donations.push({ clothingType: clothingType, quantity: quantity });
+        });
+
+        console.log("Name: " + name);
+        console.log("Email: " + email);
+        console.log("NGO: " + ngo);
+        console.log("Street Address: " + street);
+        console.log("City: " + city);
+        console.log("State: " + state);
+        console.log("Pincode: " + pincode);
+        console.log("Scheduled Pickup: " + schedulePickup);
+        console.log("Donations: ");
+        console.log(donations);
+
+        this.reset();
+    });
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyDbx9s9iI4X4yvmO1w1f73OyiIRzoFYmFY",
+    authDomain: "sahaya-3165.firebaseapp.com",
+    projectId: "sahaya-3165",
+    storageBucket: "sahaya-3165.appspot.com",
+    messagingSenderId: "79471128063",
+    appId: "1:79471128063:web:8f12fc19879f9377b08bca",
+    measurementId: "G-JLQT6F6RJS"
+  };
+
+  var database = firebase.database();
+
+  document.getElementById("donationForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Get form data
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var ngo = document.getElementById("ngo").value;
+    var street = document.getElementById("street").value;
+    var city = document.getElementById("city").value;
+    var state = document.getElementById("state").value;
+    var pincode = document.getElementById("pincode").value;
+    var schedulePickup = document.getElementById("schedulePickup").value;
+
+    // Push data to Firebase
+    var donationRef = database.ref("donations").push();
+    donationRef.set({
+      name: name,
+      email: email,
+      ngo: ngo,
+      street: street,
+      city: city,
+      state: state,
+      pincode: pincode,
+      schedulePickup: schedulePickup
+    }, function(error) {
+      if (error) {
+        console.error("Error adding donation:", error);
+      } else {
+        console.log("Donation added successfully!");
+        // Optionally, you can redirect the user to a thank you page
+        // window.location.href = "thank-you.html";
+      }
+    });
+
+    // Reset the form
+    this.reset();
+  });
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+</body>
+</html>

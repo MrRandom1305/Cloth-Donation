@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+  
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+#result{
+  background-color:#2467eb;
+}
+:root {
+  --bg-color : white;
+  --second-bg-color : #f0f8ff ;
+  --text-color : #73788d;
+  --main-color : #2467eb;
+  --heading-color : #02042e;
+}
+
+html {
+  font-size: 65.5%;
+  overflow-x : hidden;
+}
+
+body {
+  background: var(--heading-color);
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+header {
+  margin-top: 20px;
+  background-color: var(--heading-color);
+  color: var(--second-bg-color);
+  /*position: fixed;*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: .3s;
+}
+
+.header.sticky {
+  background: var(--bg-color);
+}
+
+.logo {
+  position: relative;
+  font-size: 2.5rem;
+  color: var(--second-bg-color);
+  font-weight: 600;
+  float: left;
+}
+
+.navbar {
+  position: relative;
+}
+
+.navbar a {
+  font-size: 1.7rem;
+  color: var(--second-bg-color);
+  font-weight: 500;
+  margin-left: 3.5rem;
+  transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  text-decoration-line: underline;
+}
+
+.nav_login-btn {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 2px solid var(--second-bg-color);
+  border-radius: 25px;
+}
+
+.nav_login-btn:hover {
+  border: 4px solid var(--second-bg-color);
+  font-weight: 700;
+}
+
+.home-content {
+  background-color: #02042e;
+  padding-top: 60px;
+  padding-left: 50px;
+  background-image: url(/img/home.png);
+}
+.target {
+  padding-left: 9px;
+  padding-right: 9px;
+  padding: 10px;
+  color: #f0ec0a;
+  border-radius: 25px;
+  background-color: #060b68a8;
+  letter-spacing: .5px;
+}
+
+.home h1 {
+  padding-top : 25px ;
+  color: white;
+  font-size: 7.3rem;
+  line-height: 80px;
+}
+
+.home p {
+  padding-top: 20px;
+  color: var(--text-color);
+  font-size: 1.8rem;
+}
+
+.login-btn {
+  background: var(--main-color);
+  color: var(--second-bg-color);
+  padding: 20px;
+  border-radius: 25px;
+  font-size: 1.rem;
+  margin-top: 35px;
+  width: 180px;
+  margin-bottom: 135px;
+}
+
+.login-btn i {
+  font-size: 1.7rem;
+  margin-right:5px ;
+}
+
+.info {
+  background: var(--second-bg-color);
+}
+.info-content {
+  padding-top: 50px;
+  display:flex;
+  flex-direction: row;
+  background-image: url(/img/2.png);
+}
+
+.info-text {
+  float: right;
+  width: 50%;
+}
+
+.info-text h1 {
+  padding-top: 80px;
+  color: var(--heading-color);
+  line-height: 60px;
+  font-size: 4.3rem;
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+
+.info-text p {
+  font-size: 1.7rem;
+  margin-bottom: 50px;
+}
+
+.info-btn {
+  background: var(--main-color);
+  color: var(--second-bg-color);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  margin-left: 5px;
+  margin-bottom: 150px;
+}
+
+.info-img {
+  padding: 0px;
+  width: 50%;
+  align-items: center;
+  align-content: center;
+}
+
+.info-img img {
+
+}
+
+.collect {
+  background:var(--bg-color);
+  padding-left: 50px;
+  text-align: center;
+  align-content: center;
+
+}
+
+.collect-content,
+.step-content {
+  padding-top: 30px;
+  text-align: center;
+
+}
+.collect-header h1 ,.step-header h1 , .partner-head h1 {
+  color: var(--heading-color);
+  line-height: 50px;
+  font-size: 3.7rem;
+  font-weight: 800;
+}
+
+.collect-header p , .step-header p .partner-head p {
+  margin-top: 15px;
+  font-size: 1.7rem;
+  margin-bottom: 25px;
+}
+
+.collect-card {
+  display: flex;
+  flex-direction: row;
+  row-gap: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.card {
+  margin: 15px;
+  width: 30.33%;
+  /*border:2px solid #02042e;*/
+  padding: 8px;
+  background-color: var(--second-bg-color);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card img {
+  height: 275px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin-top: 8px;
+  color: var(--heading-color);
+  font-weight: 700;
+  text-align: left;
+  text-align: center;
+}
+
+.card span {
+  color: var(--text-color);
+  font-size: 1.5px;
+}
+
+.card p {
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.card-btn {
+  padding: 9px;
+  margin-bottom: 60px;
+}
+
+.card-btn {
+  border-radius: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 2.1rem;
+  font-weight: 600;
+  background-color: var(--second-bg-color);
+  color: var(--main-color);
+}
+
+.card-btn:hover {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+}
+
+.card-btn a {
+  color: var(--heading-color);
+  font-weight: 600;
+  margin-left: 50px;
+}
+.card-btn a:hover {
+  transform: scaleX(1.1);
+
+
+}
+.step {
+  background:var(--second-bg-color);
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+.process-card {
+  display: flex;
+  flex-direction: row;
+  row-gap: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.step-card {
+  position: relative;
+  margin: 15px;
+  width: 30.33%;
+  /*border:2px solid #02042e;*/
+  padding: 18px;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+} 
+
+.step-card img {
+  aspect-ratio: 9/16;
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.step-card span {
+  position: absolute;
+  background-color: var(--heading-color);
+  color: var(--bg-color);
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  left: 5px;
+  top: 5px;
+  border-radius: 50%;
+  border: 8px solid var(--bg-color);
+  font-weight: 500;
+}
+
+.step-card h3 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+}
+
+.partner-body ul li img {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+}
+
+.partner {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  text-align: center;
+  background-color: var(--bg-color);
+}
+
+.partner-head {
+  padding-bottom: 50px;
+}
+
+.partner-btn {
+  border-radius: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 2.1rem;
+  font-weight: 600;
+  background-color: var(--main-color);
+  color: var(--bg-color);
+}
+
+.row ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 40px;
+}
+
+.row ul li {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  opacity :.6;
+  filter: grayscale(80%);
+}
+
+.row ul li img {
+  height: 100px;
+  width: auto;
+  
+}
+
+.row ul li:hover {
+  opacity :1;
+  filter: grayscale(0%);
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.row ul li p {
+  margin-top: 10px;
+  color: var(--text-colors);
+}
+
+.row ul li p:hover {
+  margin-top: 10px;
+}
+
+.join{
+  background: var(--second-bg-color);
+}
+
+.join-content {
+  display:flex;
+  flex-direction: row;
+  background-image: url(/img/3.png);
+}
+
+.join-text {
+  float: right;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.join-text h1 {
+  padding-top: 80px;
+  color: var(--heading-color);
+  line-height: 60px;
+  font-size: 4.3rem;
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+
+.join-text p {
+  font-size: 1.7rem;
+  margin-bottom: 50px;
+}
+
+.join-btn {
+  background: var(--main-color);
+  color: var(--second-bg-color);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  margin-left: 5px;
+  margin-bottom: 150px;
+  margin-top: 20px;
+  width: 50%;
+}
+
+.join-img {
+  padding: 80px;
+  width: 50%;
+  align-items: center;
+  align-content: center;
+}
+
+.join-img img {
+  width: 50%;
+}
+
+.join-text input {
+  margin: 15px;
+  padding: 15px;
+  padding-left: 25px;
+  font-size: 1.7rem;
+  border-radius: 50px;
+  width: 70%;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  background-color: var(--second-bg-color);
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: var(--bg-color);
+}
+.left {
+  width: 40%;
+  padding-left: 30px;
+}
+
+.left h1 {
+  color: var(--heading-color);
+  margin-bottom: 10px;
+}
+
+.left-icon i {
+  margin-right: 10px;
+  font-size: 2.5rem;
+}
+
+.left p {
+  margin-bottom: 10px;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: space-evenly;
+}
+
+.navigate p , .support p , .contact p { 
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+}
+
+.navigate li a,
+.support li a,
+.contact li a{
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.navigate li:hover,
+.support li:hover ,
+.contact li:hover
+{
+  font-weight: 500;
+}
+.navigate li ,
+.support li ,
+.contact li 
+ {
+  margin-bottom: 5px;
+}
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  border: 2px solid var(--heading-color);
+  position: fixed;
+  top: 15%;
+  left: 40%;
+  border: 1px solid var(--second-bg-color);
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+ .form-container {
+  
+  border: 2px solid var(--heading-color);
+  max-width: 400px;
+  padding: 20px;
+  background-color: var(--bg-color);
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 15px 0;
+  border: none;
+  background: var(--second-bg-color);
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: rgb(209, 234, 255);
+  outline: none;
+}
+
+.form-container h3 {
+  text-align: center;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  margin-top: 15px;
+  border-radius: 25px;
+  background-color: var(--heading-color);
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+} 
+
+
+    /* Add more CSS styles here */
+  </style>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <header>
+    <a href="#" class="logo">WearShare</a>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>  
+        <a href="about.html" >About Us</a>
+        <a href="#Guide">Guide</a>
+        <a href="#Featured">Featured</a> 
+        <a href="contact us.html">Contact Us</a>
+        <span class="active-nav"></span>  
+      </nav>
+    
+  </header>
+
+  <div class="form-popup" id="myForm">
+    <form action="https://api.web3forms.com/submit" method="POST" id="form">
+      <input type="hidden" name="access_key" value="497f7a4e-56d6-4b11-9e58-3c14c19be2ff" />
+      <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+      <input type="checkbox" name="botcheck" id="" style="display: none;" />
+    <form class="form-container">
+      <h3>Login/Signup</h3>
+      <label for="Name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" id="name" required>
+    
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" id="email" required>
+      
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="psw" required>
+      <p id="signup-message"></p>  Forgot Password 
+      <button type="submit" class="btn" onclick="loginSignup()">Login/Signup</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+
+<section class="home" id="home">
+    <div class="home-content">
+      <span class="target"> 100% Non-profit platform</span>
+      <h1>
+        We can make a <br> difference, Lets<br>start now!
+      </h1>
+      <p>
+        We are greatly appreciate your donation, and your sacrifice. Your <br> support helps to further our mission through including.
+      </p>
+      <button class="login-btn" onclick="window.location.href='donate.html';"> <i class='bx bxs-heart'></i>  Donate Now</button>
+    </div>
+    <div class="home-img">
+      <img src="" alt="">
+    </div>
+</section>
+<section class="info">
+  <div class="info-content">
+    <div class="info-img">
+      <img src="donation .avif" alt="">
+    </div>
+    <div class="info-text">
+      <h1>Wrap Someone in <br>Warmth  Donate <br>Clothes Today</h1>
+      <p>
+        Despite enough clothing worldwide, millions lack basic <br>garments. Climate disasters worsen this disparity. By <br>donating clothes, we bridge this gap, offering<br> dignity and warmth to those in need.<br> Join us in clothing the world.
+      </p>
+      <button class="info-btn" onclick="window.location.href='/html/index.html#Guide';" > How to contribute ?</button>
+    </div>
+  </div>
+</section>
+
+<section class="collect" id="collect">
+  <div class="collect-content">
+    <div class="collect-header">
+      <h1>Recent collection for</h1>
+      <p></p>
+    </div>
+    <div class="collect-card">
+      <div class="card">
+        <img src="logo1.webp" alt="">
+        <h3> Akanksha Education Fund</h3>
+        <p>From Wardrobes to Warmth: Donate Clothing, Change Lives</p>
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="card">
+        <img src="nss.logo.webp" alt="">
+        <h3> </h3>
+        <p>Dress for Dignity: Empowering Lives, One Garment at a Time.</p>
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="card">
+        <img src="logo6.webp" alt="">
+        <h3> The Global Goals</h3>
+        <p>Wrap the World in Warmth: Clothing for Those in Need</p>
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+  <button class="card-btn" onclick="window.location.href='donate.html';" >Donate Now</button>
+  </div>
+  </div>
+</section>
+
+<section class="step" id="Guide">
+  <div class="step-content">
+    <div class="step-header">
+      <h1>Quick process of donation</h1>
+      <p>"Securely register, accurately specify donations, and conveniently schedule pickups for impactful clothing donations."</p>
+    </div>
+    <div class="process-card">
+      <div class="step-card">
+        <img src="register.jpg" alt="">
+        <span> 1 </span>
+        <h3> Register Account</h3>
+        <p>Sign up with your details securely online</p>
+      </div>
+
+      <div class="step-card">
+        <img src="form.jpg" alt="">
+        <span> 2 </span>
+        <h3> Fill Online Form</h3>
+        <p>Provide donation specifics accurately and conveniently</p>
+      </div>
+
+      <div class="step-card">
+        <img src="pickup.jpg" alt="">
+        <span> 3 </span>
+        <h3> Scheduled Pick-up</h3>
+        <p> Arrange convenient collection time for your donated items</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="partner" id="Featured">
+  <div class="partner-content">
+    <div class="partner-head">
+      <h1>In Association with</h1>
+      <p>Despite abundant clothing, many remain underserved <br>support NGOs today.</p>
+    </div>
+    <div class="partner-body">
+      <div class="row">
+        <ul>
+          <li><img src="logo1.webp" alt=""><p> </p></li>
+          <li><img src="logo2.svg" alt=""><p> </p></li>
+          <li><img src="logo3.png" alt=""><p> </p></li>
+        </ul>
+      </div>
+      <div class="row">
+        <ul>
+          <li><img src="logo4.jpg" alt=""><p> </p></li>
+          <li><img src="logo6.webp" alt=""><p> </p></li>
+        </ul>
+    </div>
+    </div>
+  <button class="partner-btn" onclick="window.location.href='ngo-list.html'" > More </button>
+  </div>
+</section>
+
+<section class="join" id="join">
+  <div class="join-content">
+    <div class="join-img">
+      <img src="step-1.jpg" alt="">
+    </div>
+    <div class="join-text">
+      <h1>Join with us<br>as NGO</h1>
+      <p>
+        here's an abundance of clothing in the world,<br> yet millions still go without
+      </p>
+      <!--<input type="text" placeholder="Enter NGO name" required>
+      <input type="text" placeholder="Operation Aera" required>
+      <input type="number" placeholder="Phone Number" required>
+      <button class="join-btn" onclick="window.location.href='/html/forms/ngo-reg.html'"> Register Now </button>-->
+      <form action="https://api.web3forms.com/submit" method="POST" id="form">
+        <input type="hidden" name="access_key" value="497f7a4e-56d6-4b11-9e58-3c14c19be2ff" />
+        <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+        <input type="checkbox" name="botcheck" id="" style="display: none;" />
+
+        <div class="mb-6">
+          <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Enter NGO Name:</label>
+          <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-gray-500 border border-gray-700 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+        </div>
+        <div class="mb-6">
+          <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Enter NGO Name:</label>
+          <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-gray-500 border border-gray-700 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+        </div>
+        <div class="mb-6">
+          <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone Number</label>
+          <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-500 border border-gray-700 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+        </div>
+        
+          <button id="result" type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+            Send Message
+          </button>
+        </div>
+        <p class="text-base text-center text-gray-400" id="result"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="end">
+  <footer>
+    <div class="left">
+      <h1>WearShare</h1>
+      <p> 2023-2024 WearShare is part of helping<br> people </p>
+      <div class="left-icon">
+        <i class='bx bxl-facebook-circle'></i>
+        <i class='bx bxl-youtube' ></i>
+        <i class='bx bxl-instagram-alt' ></i>
+        <i class='bx bxl-twitter' ></i>
+      </div>
+    </div>
+    <div class="right">
+      <div class="navigate">
+        <p> Navigate </p>
+        <ul>
+          <li><a href="#Guide">How it works</a></li>
+          <li><a href="donate.html">Donate clothes</a></li>
+          <li><a href="">Avaliable City</a></li>
+          <li><a href="#join">Join us</a></li>
+        </ul>
+      </div>
+
+      <div class="support">
+        <p>Support</p>
+        <ul>
+          <li><a href="contact us.html">Contact </a></li>
+          <li><a href="https://rzp.io/l/VOv5gdrp">Donate us </a></li>
+          <li><a href=""></a></li>
+        </ul>
+      </div>
+
+      <div class="contact">
+        <p>Contact</p>
+        <ul>
+          <li><a href="">88XXXXXX87 </a></li>
+          <li><a href="">XYZ@gmail.com </a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</section>
+<script src="/js/index.js"></script>
+<script type="module" src="/js/firebase.js"></script>
+<script src="https://sheetdb.io/s/f/3ibprns9nqwvg.js"></script>
+</body>
+</html> 
